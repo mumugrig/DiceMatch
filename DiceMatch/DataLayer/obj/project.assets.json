@@ -8,24 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mumug\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\elika\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\DataLayer\\DataLayer.csproj",
+      "projectUniqueName": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\DataLayer\\DataLayer.csproj",
-      "packagesPath": "C:\\Users\\mumug\\.nuget\\packages\\",
-      "outputPath": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\DataLayer\\obj\\",
+      "projectPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
+      "packagesPath": "C:\\Users\\elika\\.nuget\\packages\\",
+      "outputPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\DataLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mumug\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\elika\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

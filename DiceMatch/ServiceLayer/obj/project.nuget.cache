@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FEZ7S6cvNw9LJ9MlgfFfAviufESteRKFUbQ8A+i3q3OcbKq+Q2z9Dy1Y06rJab0+GlOB8Cl5ar/BRq97ko8ZTQ==",
+  "dgSpecHash": "Aj+ZBiDpH+Qz9ze5G5MT9GJmQYDbcfm08j+KoGxs/TmZSzPPn5SvPokRibbN+low4Hi+8SIbIJ7NB5DR030Y9w==",
   "success": true,
-  "projectFilePath": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\ServiceLayer\\ServiceLayer.csproj",
+  "projectFilePath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

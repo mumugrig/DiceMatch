@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\BusinessLayer\\BusinessLayer.csproj": {}
+    "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {}
   },
   "projects": {
-    "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\BusinessLayer\\BusinessLayer.csproj": {
+    "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\BusinessLayer\\BusinessLayer.csproj",
-        "packagesPath": "C:\\Users\\mumug\\.nuget\\packages\\",
-        "outputPath": "C:\\GithubRepos\\DiceMatch\\BusinessLayer\\BusinessLayer\\obj\\",
+        "projectPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
+        "packagesPath": "C:\\Users\\elika\\.nuget\\packages\\",
+        "outputPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mumug\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\elika\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
