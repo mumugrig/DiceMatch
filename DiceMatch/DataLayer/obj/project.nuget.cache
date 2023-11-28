@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "aYzZ1J95RPWzoQe277DrW0Tg6mXZ8JuPnRWvEULPJ271gMsQjVB09B+qDsIZ4xMuwwpor4ugbdou3VlN6tFacQ==",
   "success": true,
   "projectFilePath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
@@ -63,4 +64,11 @@
       ]
     }
   ]
+=======
+  "dgSpecHash": "JRnyZF38tbRIZ2CG9FoBbbjndm+flSvxw0UDRKjpY0LO0P9Z60XYmChP+au8924Y0D8UuzJXJtGK94SMaOMcnw==",
+  "success": true,
+  "projectFilePath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+>>>>>>> Stashed changes
 }

@@ -4,25 +4,31 @@ namespace BusinessLayer
 {
     public class User
     {
-        [Required]
+        public int Id { get; set; }
         public string Username { get; set; }
 
-        [Required]
         public string Password { get; set; }
 
-        [Required]
         public string Email { get; set; }
 
-        public IEnumerable<Match> Matches { get; set; }
+        public List<Match> Matches { get; set; }
 
-        public IEnumerable<User> Friends { get; set; }
+        public List<User> Friends { get; set; }
 
         public StatusSetting Status { get; set; }
 
-        public IEnumerable<Match> WinRate { get; set; }//????
+        public double WinRate { get; set; }//????
 
-        public Character PickRates { get; set; }//??
+        public List<double> CharacterPickRates { get; set; }//??
+
+        public List<double> CharacterWinRate { get; set; }
 
         public Character Character { get; set; }//??
+
+        public int Wins { get; set; }
+
+        public List<int> CharacterWins { get; set; }
+
+        public List<int> CharacterPicks { get; set; }
     }
 }

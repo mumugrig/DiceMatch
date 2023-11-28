@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u5uNOPwZoiisgooOZwk57Ri2qMmisOQYNpGNWas2XdswdjBp031QK/uO8zpFZHR9idYrveCbD9ldwLcFgIpZpw==",
+  "dgSpecHash": "uthu+C+cRl/gJE9G0fSk9k9pnmK/0Ya1vnXyGHTgFi5HAozGBreT+SF9jnkTgO0ywpAtg6nxmay1Is3KC1V1EQ==",
   "success": true,
-  "projectFilePath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

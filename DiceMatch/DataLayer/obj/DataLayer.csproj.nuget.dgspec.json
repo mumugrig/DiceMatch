@@ -1,9 +1,10 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Minesweeper\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj": {}
+    "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
+<<<<<<< Updated upstream
     "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -12,9 +13,23 @@
         "projectPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\elika\\.nuget\\packages\\",
         "outputPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\obj\\",
+=======
+    "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
+        "projectName": "DataLayer",
+        "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\mumug\\.nuget\\packages\\",
+        "outputPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\obj\\",
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\elika\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mumug\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },

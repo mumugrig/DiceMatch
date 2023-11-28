@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace BusinessLayer
 {
     public class Match
     {
+        public int Id { get; set; }
         public User Player1 { get; set; }
 
         public User Player2 { get; set; }

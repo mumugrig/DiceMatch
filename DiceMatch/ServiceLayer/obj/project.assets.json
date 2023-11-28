@@ -8,19 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\elika\\.nuget\\packages\\": {}
+    "C:\\Users\\mumug\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj",
+      "projectUniqueName": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj",
       "projectName": "ServiceLayer",
-      "projectPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj",
-      "packagesPath": "C:\\Users\\elika\\.nuget\\packages\\",
-      "outputPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\ServiceLayer\\obj\\",
+      "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj",
+      "packagesPath": "C:\\Users\\mumug\\.nuget\\packages\\",
+      "outputPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\elika\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mumug\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
