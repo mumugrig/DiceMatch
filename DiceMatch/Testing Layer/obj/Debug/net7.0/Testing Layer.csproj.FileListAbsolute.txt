@@ -1,0 +1,29 @@
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Testing Layer.exe
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Testing Layer.deps.json
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Testing Layer.runtimeconfig.json
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Testing Layer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Testing Layer.pdb
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\FireSharp.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Threading.Tasks.Extensions.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Threading.Tasks.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\System.Net.Http.Extensions.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\System.Net.Http.Primitives.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\BusinessLayer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\DataLayer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\ServiceLayer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\BusinessLayer.pdb
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\DataLayer.pdb
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\ServiceLayer.pdb
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.csproj.AssemblyReference.cache
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.AssemblyInfoInputs.cache
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.AssemblyInfo.cs
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.csproj.CoreCompileInputs.cache
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.csproj.CopyComplete
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\refint\Testing Layer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.pdb
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.genruntimeconfig.cache
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\ref\Testing Layer.dll

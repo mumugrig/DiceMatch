@@ -15,8 +15,8 @@ namespace DataLayer
     {
         IFirebaseConfig config = new FirebaseConfig
         {
-            AuthSecret = "X4sINMKHaIe3CC9WH4r36k1VOhRkhr5hzaqXWAUj",
-            BasePath = "https://minesweeper-project-3d9a1-default-rtdb.europe-west1.firebasedatabase.app/"
+            AuthSecret = "XfuXLFzYtjRCMgqTxxP3QWY6ldBYdX9CIXPTXTLU",
+            BasePath = "https://dice-match-6d219-default-rtdb.europe-west1.firebasedatabase.app/"
         };
         public IFirebaseClient client;
         public DiceMatchDbContext()

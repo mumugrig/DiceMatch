@@ -438,8 +438,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "C:\\Minesweeper\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj"
+            "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj"
             }
           }
         }
@@ -480,6 +480,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
