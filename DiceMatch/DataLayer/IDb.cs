@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IDb<T, K> where K : IConvertible
+    public interface IDb<T, K> //where K : IConvertible the is a problem with parameter K
     {
         void Create(T item);
         T Read(K key);

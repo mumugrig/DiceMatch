@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4IU07bwX9CR+jLMNDH/zHYat3rY5Yoh4h2WA0I2NjNy76FOkpqXl+i2nJHMlbbkos0rHELeA2WBVmYPpoZdyRg==",
+  "dgSpecHash": "cHoQMBcynnyLf/K3fc27u2NmMq+XP09756Kwez2TjhhX43RpE2cATeW1rCI/rO7IIXQ6Cf3O693VneBJskHTQg==",
   "success": true,
   "projectFilePath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj",
   "expectedPackageFiles": [
@@ -12,12 +12,6 @@
     "C:\\Users\\mumug\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1701",
       "level": "Warning",

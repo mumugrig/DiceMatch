@@ -27,3 +27,14 @@ C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\refint\Testing
 C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.pdb
 C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.genruntimeconfig.cache
 C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\ref\Testing Layer.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\GithubRepos\DiceMatch\DiceMatch\Testing Layer\obj\Debug\net7.0\Testing Layer.sourcelink.json
