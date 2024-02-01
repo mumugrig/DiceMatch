@@ -9,6 +9,10 @@ namespace BusinessLayer
 {
     public class Match
     {
+        public Match() 
+        {
+
+        }
         public int Id { get; set; }
         public User Player1 { get; set; }
 

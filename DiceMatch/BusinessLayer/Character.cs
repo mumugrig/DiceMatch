@@ -2,6 +2,10 @@
 {
     public class Character
     {
+        public Character()
+        {
+
+        }
         public Character(int id, string name, int wins, int allGames, int picks)
         {
             this.Id = id;

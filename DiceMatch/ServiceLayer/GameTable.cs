@@ -7,137 +7,87 @@ namespace BusinessLayer
     public class GameTable
     {
         private const int BoardSize = 3;
-        private int[,] player1Board;
-        private int[,] player2Board;
-        private int player1Score;
-        private int player2Score;
+        public Player player1;
+        public Player player2;
+        public bool turn;
+        public int Die;
 
         public GameTable()
         {
-            player1Board = new int[BoardSize, BoardSize];
-            player2Board = new int[BoardSize, BoardSize];
-            player1Score = 0;
-            player2Score = 0;
+            player1 = new Player();
+            player2 = new Player();        
+            InitiateBoards();
+            player1.Score = 0;
+            player2.Score = 0;
+            turn = true;
+        }
+        private void InitiateBoards()
+        {
+            player1.Board = new int[BoardSize, BoardSize];
+            player2.Board = new int[BoardSize, BoardSize];
+            player1.InitiateBoard();
+            player2.InitiateBoard();
         }
 
-        public int RollDie()
+        public Player CurrentPlayer
         {
-            Random random = new Random();
-            return random.Next(1, 7); // Rolling a single 6-sided die
+            get
+            {
+                if (turn) return player1;
+                else return player2;
+            }      
+        }
+        public void Roll()
+        {
+            Die = CurrentPlayer.RollDie();
         }
 
-        public bool PlaceDie(Player player, int column)
+        public void Place(int row, int column)
         {
-            int[,] currentBoard = player == Player.Player1 ? player1Board : player2Board;
-            int[,] opponentBoard = player == Player.Player1 ? player2Board : player1Board;
+            CurrentPlayer.PlaceDie(row, column, Die);          
+            ProcessOpponentBoard(column);
+            player1.UpdateScore();
+            player2.UpdateScore();
+            turn = !turn;
+        }
 
+        private void ProcessOpponentBoard(int column)
+        {
+            turn = !turn;
+            int[,] opponentBoard = CurrentPlayer.Board;
+            turn = !turn;
             for (int i = 0; i < BoardSize; i++)
             {
-                if (currentBoard[i, column] == 0)
-                {
-                    int dieValue = RollDie();
-                    currentBoard[i, column] = dieValue;
-                    ProcessOpponentBoard(opponentBoard, column, dieValue);
-                    CalculateScore(player);
-                    return true;
-                }
-            }
-
-            return false; // Column is full, cannot place die
-        }
-
-        private void ProcessOpponentBoard(int[,] opponentBoard, int column, int dieValue)
-        {
-            for (int i = 0; i < BoardSize; i++)
-            {
-                if (opponentBoard[i, column] == dieValue)
+                if (opponentBoard[i, column] == Die)
                 {
                     opponentBoard[i, column] = 0; // Destroy opponent's dice of same value
                 }
             }
         }
 
-        private void CalculateScore(Player player)
+        public bool IsBoardFull()
         {
-            int[,] currentBoard = player == Player.Player1 ? player1Board : player2Board;
-            int score = 0;
-
-            for (int col = 0; col < BoardSize; col++)
+            if(player1.IsBoardFull() || player2.IsBoardFull())
             {
-                HashSet<int> valuesInColumn = new HashSet<int>();
-                int columnScore = 0;
-
-                for (int row = 0; row < BoardSize; row++)
-                {
-                    int currentValue = currentBoard[row, col];
-
-                    if (currentValue != 0 && !valuesInColumn.Contains(currentValue))
-                    {
-                        int occurrences = CountOccurrences(currentBoard, row, col, currentValue);
-                        valuesInColumn.Add(currentValue);
-                        columnScore += currentValue * occurrences;
-                    }
-                }
-
-                score += columnScore;
+                return true;
             }
-
-            if (player == Player.Player1)
-            {
-                player1Score = score;
-            }
-            else
-            {
-                player2Score = score;
-            }
-        }
-
-        private int CountOccurrences(int[,] board, int row, int col, int value)
-        {
-            int occurrences = 0;
-
-            for (int i = 0; i < BoardSize; i++)
-            {
-                if (board[i, col] == value)
-                {
-                    occurrences++;
-                }
-            }
-
-            return occurrences;
+            else return false;
         }
 
         public Player GetWinner()
-        {
-            if (IsBoardFull(player1Board) || IsBoardFull(player2Board))
-            {
-                return player1Score > player2Score ? Player.Player1 : Player.Player2;
-            }
-
-            return Player.None;
-        }
-
-        private bool IsBoardFull(int[,] board)
-        {
-            foreach (var cell in board)
-            {
-                if (cell == 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
+        {    
+            return player1.Score > player2.Score ? player1 : player2;
         }
 
         public int GetPlayer1Score()
         {
-            return player1Score;
+            return player1.Score;
         }
 
         public int GetPlayer2Score()
         {
-            return player2Score;
+            return player2.Score;
         }
+
     }
 }
