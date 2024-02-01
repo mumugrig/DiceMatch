@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BusinessLayer
+namespace ServiceLayer
 {
     public class GameTable
     {
@@ -46,9 +46,20 @@ namespace BusinessLayer
         {
             CurrentPlayer.PlaceDie(row, column, Die);          
             ProcessOpponentBoard(column);
+            EndTurn();
+        }
+        public void EndTurn()
+        {
             player1.UpdateScore();
             player2.UpdateScore();
+            if(CurrentPlayer.Character.Cooldown>0) CurrentPlayer.Character.Cooldown--;
             turn = !turn;
+        }
+        public void UseAbility(int[] input = null)
+        {
+            CurrentPlayer.Character.Ability(this, input);
+            player1.UpdateScore();
+            player2.UpdateScore();
         }
 
         private void ProcessOpponentBoard(int column)

@@ -10,7 +10,7 @@ namespace ServiceLayer
     public class Player
     {
         public int[,] Board;
-        public Character Character;
+        public GameCharacter Character;
         public int Score;
         private User user;
         public string Name;
@@ -53,7 +53,7 @@ namespace ServiceLayer
                 {
                     columnList.Add(Board[rows , columns]);
                 }
-                var repeats = columnList.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).First();
+                var repeats = columnList.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count).First();
                 for(int i = 0; i < Length; i++)
                 {
                     if (columnList[i] == repeats.Value)
