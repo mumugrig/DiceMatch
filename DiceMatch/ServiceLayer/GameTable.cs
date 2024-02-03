@@ -1,4 +1,5 @@
-﻿using ServiceLayer;
+﻿using BusinessLayer;
+using ServiceLayer;
 using System;
 using System.Collections.Generic;
 
@@ -12,10 +13,10 @@ namespace ServiceLayer
         public bool turn;
         public int Die;
 
-        public GameTable()
+        public GameTable(User user1, User user2)
         {
-            player1 = new Player();
-            player2 = new Player();        
+            player1 = new Player(user1);
+            player2 = new Player(user2);        
             InitiateBoards();
             player1.Score = 0;
             player2.Score = 0;

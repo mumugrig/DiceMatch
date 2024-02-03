@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using DataLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,34 @@ namespace ServiceLayer
         public int Score;
         private User user;
         public string Name;
-
-        public Player() 
+        private readonly CharacterContext characterContext;
+        public Player(User user) 
         {
-            //Name = user.Username;
-            //Character = user.Character;
+            this.user = user;
+            Name = user.Username;
+            characterContext = ContextGenerator.GetCharactersContext();
+            Character = DetectCharacter();
+        }
+
+        private GameCharacter DetectCharacter()
+        {
+            switch (user.Character.Id)
+            {
+                case 1:
+                    {
+                        return new Ash();
+                        break;
+                    }
+                //case 2:
+                //    {
+                //
+                //    }
+                //case 3:
+                //    {
+                //
+                //    }
+            }
+            return null;
         }
         public void InitiateBoard()
         {

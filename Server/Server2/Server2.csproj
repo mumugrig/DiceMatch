@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.15" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DiceMatch\BusinessLayer\BusinessLayer.csproj" />
+    <ProjectReference Include="..\..\DiceMatch\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\..\DiceMatch\ServiceLayer\ServiceLayer.csproj" />
+  </ItemGroup>
+
+
+	  </Project>

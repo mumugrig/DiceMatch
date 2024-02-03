@@ -5,11 +5,24 @@ using DataLayer;
 using FireSharp.Response;
 using Newtonsoft.Json;
 using ServiceLayer;
+using System.Text;
 
 namespace Testing_Layer
 {
     internal class Program
     {
+        static async Task HttpClientTest()
+        {
+            UserContext userContext = ContextGenerator.GetUsersContext();
+            await ServerConnection.GetLobbiesAsync();           
+            Task.Run(() => ServerConnection.CreateLobbyAsync(userContext.Read(1))).GetAwaiter().GetResult();            
+            ServerConnection.JoinLobbyAsync(userContext.Read(2),0);
+            Task.Run(() => ServerConnection.JoinLobbyAsync(userContext.Read(2), 0)).GetAwaiter().GetResult();            
+            Player player2 = await ServerConnection.GetPlayersAsync(0);
+            Lobby lobby = (await ServerConnection.GetLobbiesAsync())[0];
+            GameTable gameTable = lobby.StartGame();
+        }
+        #region Game and DB tests
         static void CreateTest()
         {
             DiceMatchDbContext db = new DiceMatchDbContext();
@@ -17,6 +30,32 @@ namespace Testing_Layer
             Character character = new Character(1, "ash",20,30,5);
 
             gameContext.Create(character);
+            if (db.client != null)
+            {
+                Console.WriteLine("ti si");
+            }
+        }
+
+        static GameTable CreateGameTable()
+        {
+            UserContext userContext = ContextGenerator.GetUsersContext();
+            GameTable gameTable = new GameTable(userContext.Read(1), userContext.Read(2));
+
+            return gameTable;
+        }
+
+        static void UserCreateTest()
+        {
+            DiceMatchDbContext db = new DiceMatchDbContext();
+            UserContext gameContext = new UserContext(db);
+            CharacterContext characterContext = new CharacterContext(db);
+            User user = new User();
+            user.Id = 2;
+            user.Username = "Player2";
+            user.Character = characterContext.Read(1);
+
+
+            gameContext.Create(user);
             if (db.client != null)
             {
                 Console.WriteLine("ti si");
@@ -35,11 +74,17 @@ namespace Testing_Layer
         }
         static void PrintAll(GameTable gameTable)
         {
+            Console.Clear();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Player1 score - {0}", gameTable.player1.Score);
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             PrintGrid(gameTable.player1.Board);
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Player2 score - {0}", gameTable.player2.Score);
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             PrintGrid(gameTable.player2.Board);
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("{1} rolled {0}", gameTable.Die, gameTable.CurrentPlayer.Name);
         }
         static void UseAbility(GameTable gameTable)
         {
@@ -52,6 +97,7 @@ namespace Testing_Layer
                     Console.Write("Input board, row and column of target: ");
                     int[] target = Console.ReadLine().Split().Select(int.Parse).ToArray();
                     gameTable.UseAbility(target);
+                    PrintAll(gameTable);
                 }
             }
             else
@@ -68,27 +114,21 @@ namespace Testing_Layer
         }
         static void GameTest()
         {
-            GameTable gameTable = new GameTable();
-            gameTable.player1.Name = "Player1";
-            gameTable.player1.Character = new Ash();
-            gameTable.player2.Name = "Player2";
-            gameTable.player2.Character = new Ash();
+
+            GameTable gameTable = CreateGameTable();
 
             while (!gameTable.IsBoardFull())
-            {
-                PrintAll(gameTable);
+            {       
                 gameTable.Roll();
-                Console.WriteLine("Player1 rolled {0}", gameTable.Die);
+                PrintAll(gameTable);
+                UseAbility(gameTable);
+                PlacementInput(gameTable);    
+                if (gameTable.IsBoardFull()) break;       
+                gameTable.Roll();
+                PrintAll(gameTable);
                 UseAbility(gameTable);
                 PlacementInput(gameTable);
-                Console.WriteLine("Player1 score - {0}", gameTable.player1.Score);
-                if (gameTable.IsBoardFull()) break;
-                PrintAll(gameTable);
-                gameTable.Roll();
-                Console.WriteLine("Player2 rolled {0}", gameTable.Die);
-                UseAbility(gameTable);
-                PlacementInput(gameTable);
-                Console.WriteLine("Player2 score - {0}", gameTable.player2.Score);
+                
             }
             Player winner = gameTable.GetWinner();
             Console.WriteLine("{0} won!!!", winner.Name);
@@ -96,7 +136,8 @@ namespace Testing_Layer
 
         static void AshAbilityTest()
         {
-            GameTable gameTable = new GameTable();
+
+            GameTable gameTable = CreateGameTable();
             for (int y = 0; y < 3; y++)
             {
                 for (int x = 0; x < 3; x++)
@@ -108,9 +149,10 @@ namespace Testing_Layer
             ash.Ability(gameTable, new int[] { 1, 1, 0 });
             PrintGrid(gameTable.player2.Board);
         }
+        #endregion
         static void Main(string[] args)
         {
-            GameTest();
+            Task.Run(() => HttpClientTest()).GetAwaiter().GetResult();
         }
     }
 }

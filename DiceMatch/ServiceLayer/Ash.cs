@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,12 @@ namespace ServiceLayer
         {
             Id = 1;
             Name = "Ash";
+            Description = "idkbro";
+            AbilityDesctiption = "Destroy a chosen die from any player's board";
+            Cooldown = 0;
+        }
+        public Ash(Character character) : base(character) 
+        {
             Description = "idkbro";
             AbilityDesctiption = "Destroy a chosen die from any player's board";
             Cooldown = 0;

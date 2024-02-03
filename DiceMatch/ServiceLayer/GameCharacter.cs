@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer;
+using DataLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,12 @@ namespace ServiceLayer
 {
     public abstract class GameCharacter
     {
+        public GameCharacter() { }
+        public GameCharacter(Character character)
+        {
+            Id = character.Id;
+            Name = character.Name;
+        }
         public static int Id;
         public static string Name;
         public static string Description;
