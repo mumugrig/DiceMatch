@@ -8611,26 +8611,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
-    "C:\\Users\\user\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
+    "C:\\Users\\mumug\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\Testing Layer\\Testing Layer.csproj",
+      "projectUniqueName": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\Testing Layer\\Testing Layer.csproj",
       "projectName": "Testing Layer",
-      "projectPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\Testing Layer\\Testing Layer.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\Testing Layer\\obj\\",
+      "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\Testing Layer\\Testing Layer.csproj",
+      "packagesPath": "C:\\Users\\mumug\\.nuget\\packages\\",
+      "outputPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\Testing Layer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\user\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+        "C:\\Users\\mumug\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8646,14 +8643,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj"
+            "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj"
             },
-            "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj"
+            "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\DataLayer\\DataLayer.csproj"
             },
-            "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj": {
-              "projectPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj"
+            "C:\\GithubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj": {
+              "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\ServiceLayer\\ServiceLayer.csproj"
             }
           }
         }
@@ -8683,7 +8680,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },

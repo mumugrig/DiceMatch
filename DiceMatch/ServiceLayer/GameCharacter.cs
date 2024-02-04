@@ -13,11 +13,15 @@ namespace ServiceLayer
     [JsonDerivedType(typeof(Ash), typeDiscriminator:"ash")]
     public class GameCharacter
     {
-        public GameCharacter() { }
+        public GameCharacter()
+        {
+            Cooldown = 0;
+        }
         public GameCharacter(Character character)
         {
             Id = character.Id;
             Name = character.Name;
+            Cooldown = 0;
         }
         public int Id;
         public string Name;

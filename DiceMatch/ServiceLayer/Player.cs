@@ -33,8 +33,11 @@ namespace ServiceLayer
             {
                 case 1:
                     {
-                        return new Ash();
-                        break;
+                        if (Character == null)
+                        {
+                            return new Ash();
+                        }
+                        return new Ash(Character);
                     }
                 //case 2:
                 //    {

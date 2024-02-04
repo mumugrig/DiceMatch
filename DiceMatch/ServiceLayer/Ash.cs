@@ -23,6 +23,14 @@ namespace ServiceLayer
             AbilityDesctiption = "Destroy a chosen die from any player's board";
             Cooldown = 0;
         }
+        public Ash(GameCharacter character)
+        {
+            Id = 1;
+            Name = "Ash";
+            Description = "idkbro";
+            AbilityDesctiption = "Destroy a chosen die from any player's board";
+            Cooldown = character.Cooldown;
+        }
         public int[] TargetCell;
         public override void Ability(GameTable gameTable, int[] targetCell)//always assing targetCell before calling ability
         {
