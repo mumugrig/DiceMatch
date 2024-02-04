@@ -22,6 +22,10 @@ namespace ServiceLayer
             player2.Score = 0;
             turn = true;
         }
+        public GameTable()
+        {
+
+        }
         private void InitiateBoards()
         {
             player1.Board = new int[BoardSize, BoardSize];
@@ -37,6 +41,14 @@ namespace ServiceLayer
                 if (turn) return player1;
                 else return player2;
             }      
+        }
+        public Player OpponentPlayer
+        {
+            get
+            {
+                if (!turn) return player1;
+                else return player2;
+            }
         }
         public void Roll()
         {
@@ -64,10 +76,8 @@ namespace ServiceLayer
         }
 
         private void ProcessOpponentBoard(int column)
-        {
-            turn = !turn;
-            int[,] opponentBoard = CurrentPlayer.Board;
-            turn = !turn;
+        {           
+            int[,] opponentBoard = OpponentPlayer.Board;            
             for (int i = 0; i < BoardSize; i++)
             {
                 if (opponentBoard[i, column] == Die)

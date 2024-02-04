@@ -12,9 +12,15 @@ namespace Testing_Layer
 {
     internal static class ServerConnection
     {
-        private readonly static HttpClient _httpClient = new HttpClient();
+        private static HttpClientHandler clientHandler = new HttpClientHandler();
+        public static void Initiate()
+        {
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+        }
         
-        private readonly static string _url = "http://localhost:5014/";
+        private readonly static HttpClient _httpClient = new HttpClient(clientHandler);
+
+        private readonly static string _url = "http://87.97.237.44:5014/";
 
         private async static void PrintResponseAsync(HttpResponseMessage responseMessage)
         {
@@ -63,7 +69,6 @@ namespace Testing_Layer
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync(_url + $"lobby/{lobbyId}", data);
                 //PrintResponseAsync(response);
-                await Console.Out.WriteLineAsync($"Joined in lobby with id {lobbyId}");
             }
             catch (HttpRequestException e)
             {
@@ -77,14 +82,39 @@ namespace Testing_Layer
         {
             var response = await _httpClient.GetAsync(_url + $"lobby/{lobbyId}");
             //PrintResponseAsync(response);
-            if (await response.Content.ReadAsStringAsync() != null)
+            if (JsonConvert.DeserializeObject<List<User>>(await response.Content.ReadAsStringAsync())[1] != null)
             {
                 User player2 = JsonConvert.DeserializeObject<List<User>>(await response.Content.ReadAsStringAsync())[1];
-                await Console.Out.WriteLineAsync($"{player2.Username} joined the game.");
+                //await Console.Out.WriteLineAsync($"{player2.Username} joined the game.");
                 return new Player(player2);
             }
             else return null; 
             
+        }
+
+        public async static Task<GameTable> GetGameAsync(int lobbyId)
+        {
+            var response = await _httpClient.GetAsync(_url + $"game/{lobbyId}");
+            GameTable game = JsonConvert.DeserializeObject<GameTable>(await response.Content.ReadAsStringAsync());
+            if (game != null)
+            {
+                game.CurrentPlayer.Character = game.CurrentPlayer.DetectCharacter();
+            }            
+            return game;
+        }
+
+        public static async Task PostGameAsync(GameTable gameTable, int lobbyId)
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(gameTable);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync(_url + $"game/{lobbyId}", data);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Request error: {e.Message}");
+            }
         }
 
     }

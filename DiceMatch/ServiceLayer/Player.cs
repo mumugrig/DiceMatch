@@ -11,20 +11,23 @@ namespace ServiceLayer
     public class Player
     {
         public int[,] Board;
+        public User user;
         public GameCharacter Character;
         public int Score;
-        private User user;
         public string Name;
-        private readonly CharacterContext characterContext;
         public Player(User user) 
         {
             this.user = user;
-            Name = user.Username;
-            characterContext = ContextGenerator.GetCharactersContext();
+            Name = this.user.Username;
             Character = DetectCharacter();
         }
+        public Player()
+        {
 
-        private GameCharacter DetectCharacter()
+        }
+
+
+        public GameCharacter DetectCharacter()
         {
             switch (user.Character.Id)
             {
@@ -44,6 +47,7 @@ namespace ServiceLayer
             }
             return null;
         }
+        
         public void InitiateBoard()
         {
             double Length = Math.Sqrt(Board.Length);

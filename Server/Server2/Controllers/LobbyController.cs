@@ -21,7 +21,7 @@ namespace Server2.Controllers
             return Lobby.Lobbies;      
         }
 
-        [HttpPost()]
+        [HttpPost]
         public void CreateLobby([FromBody]int userId)
         {
             Lobby lobby = new Lobby(_userContext.Read(userId));

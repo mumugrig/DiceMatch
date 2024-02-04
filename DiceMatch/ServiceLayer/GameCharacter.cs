@@ -4,11 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ServiceLayer
 {
-    public abstract class GameCharacter
+    [JsonDerivedType(typeof(GameCharacter), typeDiscriminator:"character")]
+    [JsonDerivedType(typeof(Ash), typeDiscriminator:"ash")]
+    public class GameCharacter
     {
         public GameCharacter() { }
         public GameCharacter(Character character)
@@ -16,10 +19,10 @@ namespace ServiceLayer
             Id = character.Id;
             Name = character.Name;
         }
-        public static int Id;
-        public static string Name;
-        public static string Description;
-        public static string AbilityDesctiption;
+        public int Id;
+        public string Name;
+        public string Description;
+        public string AbilityDesctiption;
         public int Cooldown;
         public bool OnCooldown
         {
@@ -32,7 +35,9 @@ namespace ServiceLayer
                 throw new ArgumentException("Ability is on cooldown");
             }
         }
-        public abstract void Ability(GameTable gameTable, int[] input = null);
+        public virtual void Ability(GameTable gameTable, int[] input = null)
+        {
+        }
         
     }
 }

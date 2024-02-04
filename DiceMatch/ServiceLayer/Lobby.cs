@@ -13,6 +13,7 @@ namespace ServiceLayer
         public User[] Users;
         public User User1 { get { return Users[0]; }  set { Users[0] = value; } }
         public User User2 { get { return Users[1]; } set { Users[1] = value; } }
+        public GameTable gameTable;
         public Lobby(User user1) 
         {
             Users = new User[2];
@@ -23,7 +24,8 @@ namespace ServiceLayer
         {
             if (Users[0] != null && Users[1] != null)
             {
-                return new GameTable(Users[0], Users[1]);
+                gameTable = new GameTable(Users[0], Users[1]);
+                return gameTable;
             }
             else return null;
         }

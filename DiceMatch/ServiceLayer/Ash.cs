@@ -23,17 +23,14 @@ namespace ServiceLayer
             AbilityDesctiption = "Destroy a chosen die from any player's board";
             Cooldown = 0;
         }
+        public int[] TargetCell;
         public override void Ability(GameTable gameTable, int[] targetCell)//always assing targetCell before calling ability
-        {                                                                  //index 0 - player Board; index 1 - row; index 2 - column
+        {
+            TargetCell = targetCell;                                        //index 0 - player Board; index 1 - row; index 2 - column
             CooldownCheck();
             int[,] board;
             if (targetCell[0] == 0) board = gameTable.CurrentPlayer.Board;
-            else
-            {
-                gameTable.turn = !gameTable.turn;
-                board = gameTable.CurrentPlayer.Board;
-                gameTable.turn = !gameTable.turn;
-            }
+            else  board = gameTable.OpponentPlayer.Board;               
             board[targetCell[1], targetCell[2]] = 0;
             Cooldown += 6;      
         }
