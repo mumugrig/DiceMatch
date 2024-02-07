@@ -1,0 +1,15 @@
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\bin\Release\net7.0\DataLayer.deps.json
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\bin\Release\net7.0\DataLayer.dll
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\bin\Release\net7.0\DataLayer.pdb
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\bin\Release\net7.0\BusinessLayer.dll
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\bin\Release\net7.0\BusinessLayer.pdb
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.csproj.AssemblyReference.cache
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.AssemblyInfoInputs.cache
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.AssemblyInfo.cs
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.csproj.CoreCompileInputs.cache
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.csproj.CopyComplete
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.dll
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\refint\DataLayer.dll
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\DataLayer.pdb
+D:\GitHubRepos\DiceMatch\DiceMatch\DataLayer\obj\Release\net7.0\ref\DataLayer.dll

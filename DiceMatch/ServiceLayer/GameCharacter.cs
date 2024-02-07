@@ -11,6 +11,7 @@ namespace ServiceLayer
 {
     [JsonDerivedType(typeof(GameCharacter), typeDiscriminator:"character")]
     [JsonDerivedType(typeof(Ash), typeDiscriminator:"ash")]
+    [JsonDerivedType(typeof(Talos), typeDiscriminator:"talos")]
     public class GameCharacter
     {
         public GameCharacter()

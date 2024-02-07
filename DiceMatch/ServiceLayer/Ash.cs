@@ -40,7 +40,7 @@ namespace ServiceLayer
             if (targetCell[0] == 0) board = gameTable.CurrentPlayer.Board;
             else  board = gameTable.OpponentPlayer.Board;               
             board[targetCell[1], targetCell[2]] = 0;
-            Cooldown += 6;      
+            Cooldown += 7;//6 in-game
         }
     }
 }

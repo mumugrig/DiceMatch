@@ -13,7 +13,7 @@ namespace Testing_Layer
     {
         static async Task PrintLobbies()
         {
-            List<Lobby> Lobbies = await ServerConnection.GetLobbiesAsync();
+            List<Lobby> Lobbies = await Server.GetLobbiesAsync();
             try
             {
                 foreach (Lobby lobby in Lobbies)
@@ -35,16 +35,16 @@ namespace Testing_Layer
             switch (input)
             {
                 case 0:
-                    Task.Run(() => ServerConnection.CreateLobbyAsync(user)).GetAwaiter().GetResult();
+                    Task.Run(() => Server.CreateLobbyAsync(user)).GetAwaiter().GetResult();
                     await WaitForPlayer();
                     break;
                 case 1:
                     try
                     {
-                        PrintLobbies();
+                        await PrintLobbies();
                         Console.WriteLine("Enter lobby id: ");
                         int lobbyId = int.Parse(Console.ReadLine());
-                        ServerConnection.JoinLobbyAsync(user, lobbyId);
+                        Server.JoinLobbyAsync(user, lobbyId);
                     }
                     catch
                     {
@@ -56,32 +56,48 @@ namespace Testing_Layer
         }
         static async Task WaitForPlayer()
         {
-            Player player2 = await ServerConnection.GetPlayersAsync(0);
+            Player player2 = await Server.GetPlayersAsync(0);
             Console.WriteLine("Waiting for player...");
             while (player2 == null)
             {
-                player2 = await ServerConnection.GetPlayersAsync(0);
+                player2 = await Server.GetPlayersAsync(0);
             }
             Console.WriteLine($"{player2.Name} has joined");
         }
         static async Task<GameTable> StartGame()
         {
             Console.WriteLine("Press any key to start the game.");
-            GameTable gameTable = await ServerConnection.GetGameAsync(0);
+            GameTable gameTable = await Server.GetGameAsync(0);
             while (gameTable == null)
             {
-                gameTable = await ServerConnection.GetGameAsync(0);
+                gameTable = await Server.GetGameAsync(0);
             }
             Console.ReadKey();
             return gameTable;
         }
+        static async Task<Character> SelectCharacter(User user)
+        {
+            CharacterContext _characterContext = ContextGenerator.GetCharactersContext();
+            List<Character> characters = _characterContext.ReadAll().ToList();
+            foreach(var character in characters)
+            {
+                Console.WriteLine($"{character.Id}. {character.Name}");
+            }
+            Console.WriteLine();
+            Console.Write("Select a character(id): ");
+            int characterId = int.Parse(Console.ReadLine());
+            return characters.First(x => x.Id == characterId);
+            
+        }
         static async Task HttpClientTest()
         {
-            ServerConnection.Initiate();
+            Server.Initiate();
             Console.WriteLine("Log in as Player1 or Player2(1/2):");
             int input = int.Parse(Console.ReadLine());
             UserContext userContext = ContextGenerator.GetUsersContext();
             User user = userContext.Read(input);
+            user.Character = await SelectCharacter(user);
+            userContext.Update(user);
             await LobbyActions(user);           
             GameTable gameTable = await StartGame();
             while (!gameTable.IsBoardFull())
@@ -89,28 +105,40 @@ namespace Testing_Layer
                 if (user.Username == gameTable.CurrentPlayer.Name)
                 {                    
                     gameTable.Roll();
+                    Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
                     PrintAll(gameTable);
                     UseAbility(gameTable);
+                    Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
                     PlacementInput(gameTable);
+                    Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
                     PrintAll(gameTable);
-                    Task.Run(() => ServerConnection.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
                     if (gameTable.IsBoardFull()) break;
-                    await Console.Out.WriteLineAsync("Waiting for other player...");
+                    Console.WriteLine("Waiting for other player...");
                 }
                 else
                 {
-                    gameTable = await ServerConnection.GetGameAsync(0);
+                    gameTable = await Server.GetGameAsync(0);
+                    if (gameTable.Update)
+                    {
+                        PrintAll(gameTable);
+                        gameTable.Update = false;
+                        Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
+                        Console.WriteLine("Waiting for other player...");
+                    }
+                    
                 }
             }
             Player winner = gameTable.GetWinner();
-            Console.WriteLine("{0} won!!!", winner.Name);
+            PrintAll(gameTable);
+            Console.WriteLine("{0} won!!!", winner.Name);           
+            Console.ReadKey();
         }
         #region Game and DB tests
         static void CreateTest()
         {
             DiceMatchDbContext db = new DiceMatchDbContext();
             CharacterContext gameContext = new CharacterContext(db);
-            Character character = new Character(1, "ash",20,30,5);
+            Character character = new Character(4, "Gogin",20,30,5);
 
             gameContext.Create(character);
             if (db.client != null)
@@ -159,12 +187,12 @@ namespace Testing_Layer
         {
             Console.Clear();
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Player1 score - {0}", gameTable.player1.Score);
+            Console.WriteLine("{1} score - {0}", gameTable.player1.Score, gameTable.player1.Name);
             Console.WriteLine(gameTable.player1.Character.Name);
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             PrintGrid(gameTable.player1.Board);
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Player2 score - {0}", gameTable.player2.Score);
+            Console.WriteLine("{1} score - {0}", gameTable.player2.Score, gameTable.player2.Name);
             Console.WriteLine(gameTable.player2.Character.Name);
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             PrintGrid(gameTable.player2.Board);
@@ -237,7 +265,7 @@ namespace Testing_Layer
         #endregion
         static void Main(string[] args)
         {
-            Task.Run(() => HttpClientTest()).GetAwaiter().GetResult();
+           Task.Run(() => HttpClientTest()).GetAwaiter().GetResult();
         }
     }
 }

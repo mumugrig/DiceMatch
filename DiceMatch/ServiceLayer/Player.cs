@@ -39,14 +39,32 @@ namespace ServiceLayer
                         }
                         return new Ash(Character);
                     }
-                //case 2:
-                //    {
-                //
-                //    }
-                //case 3:
-                //    {
-                //
-                //    }
+                case 2:
+                    {
+                        if (Character == null)
+                        {
+                            return new Talos();
+                        }
+                        return new Talos(Character);
+                    }
+                case 3:
+                    {
+                        if (Character == null)
+                        {
+                            return new Columna();
+                        }
+                        return new Columna(Character);
+
+                    }
+                case 4:
+                    {
+                        if (Character == null)
+                        {
+                            return new Gogin();
+                        }
+                        return new Gogin(Character);
+
+                    }
             }
             return null;
         }
@@ -71,7 +89,14 @@ namespace ServiceLayer
 
         public void PlaceDie(int row, int column, int die)
         {
-            Board[row, column] = die;
+            if (Board[row, column] == 0)
+            {
+                Board[row, column] = die;
+            }
+            else
+            {
+                throw new ArgumentException("There is already a die in that position");
+            }
         }
         public int UpdateScore()
         {

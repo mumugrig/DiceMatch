@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1cLxWt4vQ8+ZHAUaT2P33fitIlIM79UjXHr99qtMc4CVovHXkMrCy1ctv7IB5D/HhG7NMphppCb1V9nsCa94vw==",
+  "dgSpecHash": "ZBEjWLXTVubIOm6cmWqtS1gNU8rze9Ogv4Fcg/h7JVRkJhDBZQ7d6dI+Ev5t+awaoFbquL0J/RUqRExDlOosZg==",
   "success": true,
-  "projectFilePath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

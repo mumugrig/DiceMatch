@@ -12,7 +12,8 @@ namespace ServiceLayer
         public Player player2;
         public bool turn;
         public int Die;
-
+        public bool HasRolled;
+        public bool Update;
         public GameTable(User user1, User user2)
         {
             player1 = new Player(user1);
@@ -21,6 +22,8 @@ namespace ServiceLayer
             player1.Score = 0;
             player2.Score = 0;
             turn = true;
+            HasRolled = false;
+            Update = false;
         }
         public GameTable()
         {
@@ -32,6 +35,7 @@ namespace ServiceLayer
             player2.Board = new int[BoardSize, BoardSize];
             player1.InitiateBoard();
             player2.InitiateBoard();
+            Update = true;
         }
 
         public Player CurrentPlayer
@@ -52,7 +56,12 @@ namespace ServiceLayer
         }
         public void Roll()
         {
-            Die = CurrentPlayer.RollDie();
+            if (!HasRolled)
+            {
+                Die = CurrentPlayer.RollDie();
+                HasRolled = true;
+            }
+            Update = true;
         }
 
         public void Place(int row, int column)
@@ -67,12 +76,15 @@ namespace ServiceLayer
             player2.UpdateScore();
             if(CurrentPlayer.Character.Cooldown>0) CurrentPlayer.Character.Cooldown--;
             turn = !turn;
+            HasRolled = false;
+            Update = true;
         }
         public void UseAbility(int[] input = null)
         {
             CurrentPlayer.Character.Ability(this, input);
             player1.UpdateScore();
             player2.UpdateScore();
+            Update = true;
         }
 
         private void ProcessOpponentBoard(int column)

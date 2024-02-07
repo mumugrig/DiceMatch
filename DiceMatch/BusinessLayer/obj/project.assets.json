@@ -8,23 +8,26 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mumug\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\mumug\\.nuget\\packages\\",
-      "outputPath": "C:\\GithubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\obj\\",
+      "projectPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\BusinessLayer.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHubRepos\\DiceMatch\\DiceMatch\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Users\\user\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mumug\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -67,7 +70,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

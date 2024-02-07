@@ -31,5 +31,11 @@ namespace Server.Controllers
             Console.WriteLine("Player has been added to the DB");
             return user;
         }
+        [HttpPut]
+        public User Put([FromBody]User user)
+        {
+            _userContext.Update(user);
+            return user;
+        }
     }
 }
