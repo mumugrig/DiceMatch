@@ -6,6 +6,7 @@ using FireSharp.Response;
 using Newtonsoft.Json;
 using ServiceLayer;
 using System.Text;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace Testing_Layer
 {
@@ -18,7 +19,7 @@ namespace Testing_Layer
             {
                 foreach (Lobby lobby in Lobbies)
                 {
-                    Console.WriteLine($"{Lobbies.IndexOf(lobby)}. {lobby.User1.Username}\'s lobby");
+                    Console.WriteLine($"{Lobbies.IndexOf(lobby)+1}. {lobby.User1.Username}\'s lobby");
                 }
             }
             catch (Exception ex)
@@ -27,50 +28,51 @@ namespace Testing_Layer
                 
             }           
         }
-        static async Task LobbyActions(User user)
+        static async Task<int> LobbyActions(User user)
         {
             Console.Clear();
             Console.WriteLine("Would you like to create/0/ or join/1/ a lobby: ");
             int input = int.Parse(Console.ReadLine());
+            int lobbyId;
             switch (input)
             {
                 case 0:
-                    Task.Run(() => Server.CreateLobbyAsync(user)).GetAwaiter().GetResult();
-                    await WaitForPlayer();
-                    break;
+                    lobbyId = Task.Run(() => Server.CreateLobbyAsync(user)).GetAwaiter().GetResult();
+                    await WaitForPlayer(lobbyId);
+                    return lobbyId;
                 case 1:
                     try
                     {
                         await PrintLobbies();
                         Console.WriteLine("Enter lobby id: ");
-                        int lobbyId = int.Parse(Console.ReadLine());
+                        lobbyId = int.Parse(Console.ReadLine())-1;
                         Server.JoinLobbyAsync(user, lobbyId);
+                        return lobbyId;
                     }
                     catch
                     {
-                        await LobbyActions(user);
-                    }
-                    
-                    break;
+                        return await LobbyActions(user);
+                    }                   
             }
+            return -1;
         }
-        static async Task WaitForPlayer()
+        static async Task WaitForPlayer(int lobbyId)
         {
-            Player player2 = await Server.GetPlayersAsync(0);
+            Player player2 = await Server.GetPlayersAsync(lobbyId);
             Console.WriteLine("Waiting for player...");
             while (player2 == null)
             {
-                player2 = await Server.GetPlayersAsync(0);
+                player2 = await Server.GetPlayersAsync(lobbyId);
             }
             Console.WriteLine($"{player2.Name} has joined");
         }
-        static async Task<GameTable> StartGame()
+        static async Task<GameTable> StartGame(int lobbyId)
         {
             Console.WriteLine("Press any key to start the game.");
-            GameTable gameTable = await Server.GetGameAsync(0);
+            GameTable gameTable = await Server.GetGameAsync(lobbyId);
             while (gameTable == null)
             {
-                gameTable = await Server.GetGameAsync(0);
+                gameTable = await Server.GetGameAsync(lobbyId);
             }
             Console.ReadKey();
             return gameTable;
@@ -98,39 +100,39 @@ namespace Testing_Layer
             User user = userContext.Read(input);
             user.Character = await SelectCharacter(user);
             userContext.Update(user);
-            await LobbyActions(user);           
-            GameTable gameTable = await StartGame();
+            int lobbyId = Task.Run(() => LobbyActions(user)).GetAwaiter().GetResult();
+            GameTable gameTable = await StartGame(lobbyId);
             while (!gameTable.IsBoardFull())
             {
                 if (user.Username == gameTable.CurrentPlayer.Name)
                 {                    
                     gameTable.Roll();
-                    Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
+                    Task.Run(() => Server.PostGameAsync(gameTable, lobbyId)).GetAwaiter().GetResult();
                     PrintAll(gameTable);
                     UseAbility(gameTable);
-                    Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
+                    Task.Run(() => Server.PostGameAsync(gameTable, lobbyId)).GetAwaiter().GetResult();
                     PlacementInput(gameTable);
-                    Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
+                    Task.Run(() => Server.PostGameAsync(gameTable, lobbyId)).GetAwaiter().GetResult();
                     PrintAll(gameTable);
                     if (gameTable.IsBoardFull()) break;
                     Console.WriteLine("Waiting for other player...");
                 }
                 else
                 {
-                    gameTable = await Server.GetGameAsync(0);
+                    gameTable = await Server.GetGameAsync(lobbyId);
                     if (gameTable.Update)
                     {
                         PrintAll(gameTable);
                         gameTable.Update = false;
-                        Task.Run(() => Server.PostGameAsync(gameTable, 0)).GetAwaiter().GetResult();
+                        Task.Run(() => Server.PostGameAsync(gameTable, lobbyId)).GetAwaiter().GetResult();
                         Console.WriteLine("Waiting for other player...");
-                    }
-                    
+                    }                    
                 }
             }
             Player winner = gameTable.GetWinner();
             PrintAll(gameTable);
-            Console.WriteLine("{0} won!!!", winner.Name);           
+            Console.WriteLine("{0} won!!!", winner.Name);
+            await Server.DeleteLobbyAsync(lobbyId);
             Console.ReadKey();
         }
         #region Game and DB tests
@@ -209,6 +211,10 @@ namespace Testing_Layer
                 {
                     Console.Write("Input board, row and column of target: ");
                     int[] target = Console.ReadLine().Split().Select(int.Parse).ToArray();
+                    for(int i = 0; i < target.Length; i++)
+                    {
+                        target[i]--;
+                    }
                     gameTable.UseAbility(target);
                     PrintAll(gameTable);
                 }
@@ -223,6 +229,10 @@ namespace Testing_Layer
         {
             Console.Write("Input row and column: ");
             int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            for (int i = 0; i < input.Length; i++)
+            {
+                input[i]--;
+            }
             gameTable.Place(input[0], input[1]);
         }
         static void GameTest()

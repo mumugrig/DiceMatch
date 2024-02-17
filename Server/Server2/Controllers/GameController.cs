@@ -17,12 +17,20 @@ namespace Server2.Controllers
 
         [HttpGet("{lobbyId}")]
         public GameTable GetGame(int lobbyId)
-        {            
-            if (Lobby.Lobbies[lobbyId].gameTable == null)
+        {
+            try
             {
-                Lobby.Lobbies[lobbyId].StartGame();
+                if (Lobby.Lobbies[lobbyId].gameTable == null)
+                {
+                    Lobby.Lobbies[lobbyId].StartGame();
+                }
+                return Lobby.Lobbies[lobbyId].gameTable;
             }
-            return Lobby.Lobbies[lobbyId].gameTable;
+            catch
+            {
+                return null;
+            }
+            
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Testing_Layer
             //PrintResponseAsync(response);
             return JsonConvert.DeserializeObject<List<Lobby>>(await response.Content.ReadAsStringAsync());
         }
-        public static async Task CreateLobbyAsync(User user)
+        public static async Task<int> CreateLobbyAsync(User user)
         {
             try 
             {
@@ -51,6 +51,7 @@ namespace Testing_Layer
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync(_url + $"lobby", data);
                 await Console.Out.WriteLineAsync("Lobby created.");
+                return JsonConvert.DeserializeObject<int>(await response.Content.ReadAsStringAsync());
                 //PrintResponseAsync(response);
 
             }
@@ -58,6 +59,7 @@ namespace Testing_Layer
             {
                 // Handle exceptions related to the HTTP request
                 Console.WriteLine($"Request error: {e.Message}");
+                return -1;
             }
                 
         }
@@ -144,6 +146,19 @@ namespace Testing_Layer
             {
                 Console.WriteLine($"Request error: {e.Message}");
                 return null;
+            }
+        }
+
+        public static async Task DeleteLobbyAsync(int lobbyId)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync(_url + $"lobby/{lobbyId}");
+                
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Request error: {e.Message}");
             }
         }
 

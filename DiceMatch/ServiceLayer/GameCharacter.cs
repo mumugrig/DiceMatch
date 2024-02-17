@@ -43,6 +43,5 @@ namespace ServiceLayer
         public virtual void Ability(GameTable gameTable, int[] input = null)
         {
         }
-        
     }
 }
