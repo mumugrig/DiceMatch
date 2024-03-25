@@ -17,7 +17,7 @@ namespace ServiceLayer
         public UserAuthenticator()
         {
             userManager = new DbManager<User, int>(ContextGenerator.GetUsersContext());
-            matchManager = new DbManager<Match, int>(ContextGenerator.GetMatchsContext());
+            matchManager = new DbManager<Match, int>(ContextGenerator.GetMatchesContext());
             LoggedIn = false;
             Player = userManager.Read(0);
             LocalGames = matchManager.ReadAll().Where(x => x.Player1.Id == Player.Id).ToList();

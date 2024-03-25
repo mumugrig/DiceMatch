@@ -23,17 +23,16 @@ namespace ServiceLayer
             dbContext = new DiceMatchDbContext();
         }
 
-        public static MatchContext GetMatchsContext()
+        public static MatchContext GetMatchesContext()
         {
             if (matchContext == null)
             {
-                SetMatchsContext();
+                SetMatchesContext();
             }
-
             return matchContext;
         }
 
-        public static void SetMatchsContext()
+        public static void SetMatchesContext()
         {
             matchContext = new MatchContext(GetDbContext());
         }
